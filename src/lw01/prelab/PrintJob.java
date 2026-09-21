@@ -5,13 +5,17 @@ public abstract class PrintJob implements Chargeable {
     private String id;
     private int pages;
 
-    public PrintJob(String id, int pages) {
+    protected PrintJob(String id, int pages) {  //dibikin protected
         if (pages <= 0) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Pages must be a positive number");
         }
 
         this.id = id;
         this.pages = pages;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public int getPages() {
@@ -23,10 +27,10 @@ public abstract class PrintJob implements Chargeable {
 
     public int calculateCharge(int copies) {
         if (copies <= 0) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Harus positive");
         }
 
-        return copies * calculateCharge();
+        return copies * calculateCharge();    //overload
     }
 
     public String label() {
