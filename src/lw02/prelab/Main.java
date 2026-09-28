@@ -5,14 +5,14 @@ import java.util.Queue;
 import java.util.Scanner;
 import java.util.Stack;
 
-public class BankTransaction {
+public class Main {
 
     public static void main(String[] args) {
 
         LinkedList<String[]> transactions = new LinkedList<>();  // nyimpen transactionnya di linkedlist
 
         Scanner scanner = new Scanner(
-            BankTransaction.class.getResourceAsStream("transactions.txt")
+            Main.class.getResourceAsStream("transactions.txt")
         );
 
         while (scanner.hasNextLine()) {
@@ -25,7 +25,7 @@ public class BankTransaction {
 
         scanner.close();
 
-        LinkedList<String[]> customers = new LinkedList<>();
+        LinkedList<String[]> customers = new LinkedList<>();    //nyimpen data customer di linkedlist
 
         for (String[] transaction : transactions) {
 
@@ -95,6 +95,8 @@ public class BankTransaction {
 
             System.out.println(customer[0] + " : " + customer[1]);
         }
+
+        System.out.println();
 
         System.out.println("=== Failed Transactions ===");
 
